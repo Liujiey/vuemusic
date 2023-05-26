@@ -5,7 +5,9 @@ const baseUrl = "http://localhost:3000/";
 export function getBanner(type=0){
     return axios.get(`${baseUrl}banner?type=${type}`);
 }
-
+export function getMusic(limit=6){
+    return axios.get(`${baseUrl}personalized?limit=${limit}`);
+}
 
 //对外抛出
-export default { getBanner }
+export default { getBanner,getMusic }
