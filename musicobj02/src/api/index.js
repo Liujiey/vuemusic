@@ -8,6 +8,8 @@ export function getBanner(type=0){
 export function getMusic(limit=6){
     return axios.get(`${baseUrl}personalized?limit=${limit}`);
 }
-
+export function getListview(id){
+    return axios.get(`${baseUrl}playlist/detail?id=${id}`);
+}
 //对外抛出
-export default { getBanner,getMusic }
+export default { getBanner,getMusic,getListview }

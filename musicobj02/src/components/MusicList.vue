@@ -7,7 +7,7 @@
         <div class="mlist">
             <div class="swiper-container" id="musicSwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="(item,index) in musicls.musics" :key="index">
+                    <router-link :to="{path:'/listview',query:{id:item.id}}" class="swiper-slide" v-for="(item,index) in musicls.musics" :key="index">
                         <img :src="item.picUrl" alt="">
                         <div class="name">{{item.name}}</div>
                         <div class="count">
@@ -16,7 +16,7 @@
                             </svg>
                             <span>{{changeValue(item.playCount)}}</span>
                         </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
         </div>
