@@ -15,6 +15,7 @@ import { onMounted, reactive } from 'vue';
 import { getListview} from "@/api/index"
 import listviewTop from "@/components/ListViewTop.vue"
 import playList from '../components/PlayList.vue';
+import store from '@/store';
     export default{
         name:"listview",
         setup(){
@@ -36,7 +37,7 @@ import playList from '../components/PlayList.vue';
             onMounted(async()=>{
                 var res = await getListview(id);
                 music.playlist = res.data.playlist
-                console.log(music);
+                store.commit("setPlayList",music.playlist.tracks);
             })
             return { music }
         },

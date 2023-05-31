@@ -22,6 +22,9 @@ export default createStore({
   mutations: {
     setPlayList(state,value){
       state.playlist = value;
+    },
+    setPlayIndex(state,value){
+      state.playCurrentIndex = value;
     }
   },
   actions: {
