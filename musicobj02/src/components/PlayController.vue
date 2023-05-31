@@ -23,8 +23,10 @@
     </div>
 </template>
 <script>
+import store from "@/store/index"
 import { mapState } from 'vuex';
 import playMusic from "@/components/PlayMusic.vue"
+import { getLyric } from "@/api";
     export default{
         name:"playcontroller",
         data(){
@@ -35,6 +37,14 @@ import playMusic from "@/components/PlayMusic.vue"
         },
         computed:{
             ...mapState(['playlist','playCurrentIndex'])
+        },
+        async mounted() {
+            var res = await getLyric(this.playlist[this.playCurrentIndex].id);
+            store.commit("setPlayLyric",res.data.lrc.lyric);
+        },
+        async updated() {
+            var res = await getLyric(this.playlist[this.playCurrentIndex].id);
+            store.commit("setPlayLyric",res.data.lrc.lyric);
         },
         methods:{
             play(){

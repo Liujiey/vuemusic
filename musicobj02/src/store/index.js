@@ -15,16 +15,24 @@ export default createStore({
         }
       } 
     ],
-    playCurrentIndex:0
+    lyric:"666",
+    playCurrentIndex:0,
+    islogin:false
   },
   getters: {
   },
   mutations: {
-    setPlayList(state,value){
+    setPlayList(state,value){//定义一个函数修改歌单列表数据
       state.playlist = value;
     },
-    setPlayIndex(state,value){
+    setPlayIndex(state,value){//定义一个函数修改下标
       state.playCurrentIndex = value;
+    },
+    setPlayLyric(state,value){//定义一个函数修改歌词
+      state.lyric = value;
+    },
+    pushPlayLyric(state,value){//定义一个函数修改歌词
+      state.playlist.push(value);
     }
   },
   actions: {

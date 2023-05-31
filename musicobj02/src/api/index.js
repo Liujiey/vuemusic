@@ -11,5 +11,11 @@ export function getMusic(limit=6){
 export function getListview(id){
     return axios.get(`${baseUrl}playlist/detail?id=${id}`);
 }
+export function getLyric(id){
+    return axios.get(`${baseUrl}lyric?id=${id}`);
+}
+export function searchMusic(keywords){
+    return axios.get(`${baseUrl}search?keywords=${keywords}&limit=6`);
+}
 //对外抛出
-export default { getBanner,getMusic,getListview }
+export default { getBanner,getMusic,getListview ,getLyric,searchMusic}

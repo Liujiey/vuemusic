@@ -17,7 +17,7 @@
             </div>
         </div>
         <div v-if="isLyric" class="playLyric" @click="isLyric=!isLyric">
-            离离原上草，一岁一枯荣，野火烧不尽，春风吹又生
+            {{lyric}}
         </div>
         <div v-else class="playContent" @click="isLyric=!isLyric" >
             <!-- class有active小白条落下 class没有active小白条抬起  动态class，值为true才会添加class名称 -->
@@ -63,7 +63,7 @@ export default{
         }
     },
     computed:{
-        ...mapState(["playCurrentIndex","playlist"])
+        ...mapState(["playCurrentIndex","playlist","lyric"])
     },
     methods:{
         tabMusic(num){
@@ -76,7 +76,7 @@ export default{
             console.log(index)
             this.setPlayIndex(index);
         },
-        ...mapMutations(["setPlayIndex"])
+        ...mapMutations(["setPlayIndex","setPlayLyric"])
     }
 }
 </script>
